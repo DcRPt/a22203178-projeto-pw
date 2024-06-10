@@ -1,0 +1,54 @@
+{
+    "bands": [
+        {
+            "name": "Led Zeppelin",
+            "nationality": "British",
+            "year_created": 1968
+        },
+        {
+            "name": "The Rolling Stones",
+            "nationality": "British",
+            "year_created": 1962
+        },
+        {
+            "name": "Queen",
+            "nationality": "British",
+            "year_created": 1970
+        },
+        {
+            "name": "Nirvana",
+            "nationality": "American",
+            "year_created": 1987
+        },
+        {
+            "name": "The Beatles",
+            "nationality": "British",
+            "year_created": 1960
+        },
+        {
+            "name": "Pink Floyd",
+            "nationality": "British",
+            "year_created": 1965
+        },
+        {
+            "name": "AC/DC",
+            "nationality": "Australian",
+            "year_created": 1973
+        },
+        {
+            "name": "The Doors",
+            "nationality": "American",
+            "year_created": 1965
+        },
+        {
+            "name": "Guns N' Roses",
+            "nationality": "American",
+            "year_created": 1985
+        },
+        {
+            "name": "The Who",
+            "nationality": "British",
+            "year_created": 1964
+        }
+    ]
+}

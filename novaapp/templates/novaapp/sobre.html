@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação Web</title>
+    <style>
+        body {
+            background: #802626;
+            color: #eeeeee;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        .container {
+            flex: wrap-around;
+            margin-right: 3rem;
+        }
+
+        img {
+            max-width: 20rem;
+            max-height: 20rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programação Web</h1>
+        <nav>
+            <a href="{% url 'novaapp:index' %}">Home</a> |
+            <a href="{% url 'novaapp:sobre' %}">Sobre</a> |
+            <a href="{% url 'novaapp:interesses' %}">Interesses</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Sobre</h2>
+        <div class="content">
+            <div class= "container">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce condimentum malesuada nibh, nec lobortis tortor gravida quis. Suspendisse id magna.</p>
+                <ul>
+                    <li><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Fusce condimentum malesuada nibh.</li>
+                    <li><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Fusce condimentum malesuada nibh.</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae eros nec dui porttitor dignissim. Nulla viverra mi quis elit faucibus, ut tincidunt felis vestibulum. Donec dignissim odio consequat sem luctus scelerisque.</p>
+            </div>
+            <img src="../../../media/smileEmoji.jpg" alt="smile emoji">
+        </div>
+    </main>
+
+
+
+    <footer>
+        <p>&copy; {{ data|date:"j F Y" }} Programação Web, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

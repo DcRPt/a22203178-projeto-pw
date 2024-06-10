@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação Web</title>
+    <style>
+        body {
+            background: #802626;
+            color: #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programação Web</h1>
+        <nav>
+            <a href="{% url 'novaapp:index' %}">Home</a> |
+            <a href="{% url 'novaapp:sobre' %}">Sobre</a> |
+            <a href="{% url 'novaapp:interesses' %}">Interesses</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Sobre</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce condimentum malesuada nibh, nec lobortis tortor gravida quis. Suspendisse id magna.</p>
+        <ul>
+            <li><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Fusce condimentum malesuada nibh.</li>
+            <li><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Fusce condimentum malesuada nibh.</li>
+        </ul>
+    </main>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel placerat ante, in gravida orci. Vestibulum eget sapien ac quam porta lobortis ut vel odio. Fusce ultricies, mauris vel dignissim rhoncus, metus lorem posuere arcu, lobortis vestibulum ante risus nec lectus. Etiam venenatis id ex non volutpat. Nam convallis commodo condimentum. Integer vehicula tempor nulla, vel pretium lacus volutpat eget. Ut orci urna, blandit vitae neque at, mollis consequat purus. Aenean pulvinar justo id mi vestibulum rutrum. Mauris lacus dui, gravida nec ultrices nec, dapibus a odio. Quisque ligula metus, consequat eu tellus eget, auctor finibus magna. Nunc ligula ex, facilisis eu mattis sed, dictum in sem. Integer sed tortor et leo tristique pulvinar. Donec finibus dictum erat, in aliquet leo dictum ut. Vestibulum iaculis sed ante sed viverra. Nam ante ipsum, convallis non arcu a, pharetra congue metus. Aliquam erat volutpat.</p>
+        <p>Aenean ultrices risus eu est consectetur ullamcorper. Etiam commodo aliquam nibh, quis fringilla turpis ultricies in. Phasellus sollicitudin turpis ac lorem vulputate tincidunt. Vivamus sit amet pellentesque massa, sit amet eleifend eros. Nulla eleifend posuere mattis. In ut pharetra nunc. Morbi in tincidunt libero. Duis et tellus lacus. Phasellus vel euismod arcu. Cras efficitur nisi tortor, ac tempus eros ullamcorper a. Integer efficitur congue aliquet. Ut neque leo, dignissim vitae ipsum sit amet, sollicitudin mattis dui. In eget orci mattis, commodo arcu et, ultricies nisi. Integer ut dapibus purus, non egestas massa. Proin ut nisl sagittis, tincidunt diam ac, imperdiet tellus. Praesent eleifend magna ac urna ultrices aliquet.</p>
+        <p>Proin sollicitudin fringilla eros et tempus. In in lorem eu magna hendrerit dignissim. Phasellus dui mauris, efficitur ac blandit sit amet, pellentesque eu nunc. Duis vel quam fringilla, ultrices nunc eget, congue mi. Nunc sodales lacus in magna commodo efficitur. Quisque placerat velit quis varius semper. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+
+    <footer>
+        <p>&copy; {{ data|date:"j F Y" }} Programação Web, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

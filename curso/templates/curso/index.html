@@ -1,0 +1,28 @@
+{% extends 'curso/layout.html' %}
+
+{% block title %}Cursos{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Cursos</h2>
+
+{% if request.user.is_authenticated %}
+    <div class="button-container">
+        <a href="{% url 'curso:novo_curso' %}" class="button-novo"><i class="fas fa-plus"> Novo Curso</i></a>
+    </div>
+{% endif %}
+
+<div class="grid-container">
+    {% for curso in cursos %}
+    <div class="curso-card">
+        <a href="{% url 'curso:curso_view' curso.nome %}" class="curso-link">{{ curso.nome }}</a>
+        {% if request.user.is_authenticated %}
+        <div class="curso-actions">
+            <a href="{% url 'curso:edita_curso' curso.nome %}" class="button-edita"><i class="fas fa-edit"> Editar</i></a>
+            <a href="{% url 'curso:apaga_curso' curso.nome %}" class="button-apaga"><i class="fas fa-trash"> Remover</i></a>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

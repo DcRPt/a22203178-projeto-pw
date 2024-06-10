@@ -1,0 +1,16 @@
+{% extends 'festivais/layout.html' %}
+
+{% block title %}Festivais{% endblock %}
+
+{% block content %}
+
+<h1>{{ festival.nome }}, {{ festival.localizacao.cidade }}</h1>
+    <h2>Bandas:</h2>
+    <ul>
+        {% for banda in festival.bandas.all %}
+            <li>* {{ banda.nome }}</li>
+        {% endfor %}
+    </ul>
+    <img src="{{ festival.get_cartaz }}" alt="Cartaz do Festival">
+    <a href="{% url 'festivais:index' %}">Lista de festivais</a>
+{% endblock %}

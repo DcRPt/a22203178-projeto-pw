@@ -1,0 +1,420 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e4e6e770;
+    color: #000;
+    line-height: 1.6;
+}
+
+header {
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.meteorologia-relogio {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #e4edf5;
+    border: 3px solid #12d1d9b0;
+    border-radius: 5px;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+}
+
+.temperaturas {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.temp-maxima, .temp-minima {
+    margin: 5px;
+}
+
+#temp-maxima {
+    color: red;
+}
+
+#temp-maxima .fas.fa-thermometer-full {
+    color: red;
+}
+
+#temp-minima {
+    color: blue;
+}
+
+#temp-minima .fas.fa-thermometer-empty {
+    color: blue;
+}
+
+.clock-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #f1f2f3;
+    border: 3px solid #000000;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+#clock-icon {
+    width: 50px;
+    height: 50px;
+    padding-left: 5px;
+}
+
+#clock {
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+#dark-mode-toggle {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#dark-mode-toggle:hover {
+    background-color: #555;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+main > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    flex-direction: column;
+}
+
+.hero-image {
+    height: 90vh;
+    background-image: url("https://images.unsplash.com/photo-1459213599465-03ab6a4d5931?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1MTAxNTA2MA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%
+}
+
+.hero-image .hero-phrase {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 2em;
+}
+
+.hero-phrase h1 {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 50px;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.about-me-section h2, .skills-section h3, .education-section h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.about-me-section p, .skills-section li, .education-section p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.about-me-section, .skills-section, .education-section {
+    margin-bottom: 30px;
+}
+
+.skills-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skills-section li {
+    background: #e4edf5;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.video-container > div {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+video {
+    width: 100%;
+    max-width: 320px;
+}
+
+.login-container,
+.register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.login-form,
+.register-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 300px; /* Fixed width */
+    margin-top: 20px;
+}
+
+.login-title,
+.register-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.login-button,
+.register-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.login-button:hover,
+.register-button:hover {
+    opacity: 0.8;
+}
+
+.login-form-links,
+.register-form-links {
+    color: #0066cc;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.login-form-links a,
+.register-form-links a{
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.login-form-links a:hover,
+.register-form-links a:hover {
+    text-decoration: underline;
+}
+
+.recover-password-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 14px;
+    color: #4CAF50;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.recover-password-link:hover {
+    text-decoration: underline; /* Adds underline on hover for better user interaction */
+    background-color: #f4f4f4; /* Light background on hover to make it pop slightly */
+}
+
+.cancel-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #999;
+    text-decoration: none;
+}
+
+.cancel-link:hover {
+    text-decoration: underline;
+    color: #666;
+}
+
+@media (max-width: 300px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 10px;
+    }
+
+    .meteorologia-relogio {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .weather-block, .clock-block {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+
+    .icon, .clock-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .temperaturas, #clock {
+        font-size: 12px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-bottom: 5px;
+    }
+
+    .user-info, .auth-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #dark-mode-toggle {
+        margin-top: 10px;
+    }
+}
+
+/* Estilos para o modo escuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+body.dark-mode header.dark-mode {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .weather-block.dark-mode,
+body.dark-mode .clock-block.dark-mode  {
+    background-color: #2c2c2c;
+    border-color: #ffffff;
+}
+
+body.dark-mode .auth-buttons a,
+body.dark-mode h3,
+nav.dark-mode ul li a {
+    color: #fff;
+}
+
+body.dark-mode #dark-mode-toggle {
+    background-color: #fff;
+    color: #333;
+}
+
+
+body.dark-mode #dark-mode-toggle:hover {
+    background-color: #ddd;
+}
+
+body.dark-mode .skills-section li.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .skills-section li {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .subtitle,
+.dark-mode .about-me-section h2,
+.dark-mode .skills-section h3,
+.dark-mode .education-section h3 {
+    color: #ccc;
+}

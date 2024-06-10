@@ -1,0 +1,11 @@
+{% extends 'curso/layout.html' %}
+
+{% block content %}
+    <h3>Edita Linguagem</h3>
+
+    <form action="{% url 'curso:edita_linguagem' curso.nome disciplina.nome projeto.nome linguagem.nome %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Salvar Alterações">
+    </form>
+{% endblock %}

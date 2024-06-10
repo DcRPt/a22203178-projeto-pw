@@ -1,0 +1,72 @@
+{% extends 'artigos/layout.html' %}
+
+{% block title %}Artigos{% endblock %}
+
+{% block content %}
+<h1>Autores</h1>
+
+{% if request.user.is_authenticated %}
+    <a class="button-novo" href="{% url 'artigos:novo_autor' %}">
+        Inserir novo autor
+    </a>
+{% endif %}
+
+<ul>
+    <div class="autores">
+        {% for author in authors %}
+        <div class="autor">
+            <div class="autor-info">
+                <a href="{% url 'artigos:author_view' author.name %}">{{ author.name }}</a>
+            </div>
+
+            {% if request.user.is_authenticated %}
+            <a class="button-editar" href="{% url 'artigos:edita_autor' author.id %}">
+                Editar autor
+            </a>
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+                <a class="button-apagar" href="{% url 'artigos:apaga_autor' author.id%}">
+                    Apagar autor
+                </a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</ul>
+
+<h1>Artigos</h1>
+
+{% if request.user.is_authenticated %}
+    <a class="button-novo" href="{% url 'artigos:novo_artigo' %}">
+        Inserir novo artigo
+    </a>
+{% endif %}
+
+<ul>
+    <div class="artigos">
+        {% for article in articles %}
+        <div class="artigo">
+            <div class="artigo-info">
+                <a href="{% url 'artigos:article_view' article.author.name article.title %}">{{ article.title }}</a>
+                <p>por {{ article.author.name }}</p>
+            </div>
+
+            {% if request.user.is_authenticated %}
+            <a class="button-editar" href="{% url 'artigos:edita_artigo' article.id %}">
+                Editar artigo
+            </a>
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+                <a class="button-apagar" href="{% url 'artigos:apaga_artigo' article.id %}">
+                    Apagar artigo
+                </a>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+    </div>
+</ul>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'bandas/layout.html' %}
+
+{% block title %}
+{{band.name}}
+{% endblock %}
+
+{% block content %}
+    <div class="band-container">
+        <h1>{{ band.name }}</h1>
+        <img class="band-photo" src="{{ band.get_band_photo }}" alt="Foto da banda {{ band.name }}">
+    </div>
+    <h2 class="album-title">Álbuns</h2>
+
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'bandas:novo_album' band.name %}">
+            <button>criar Album</button>
+        </a>
+    {% endif %}
+
+    <ul class="album-list">
+        {% for album in albums %}
+            <li class="album-item">
+                <a href="{% url 'bandas:album_view' album.title %}">{{ album.title }}</a>
+
+                {% if is_admin %}
+                    <a href="{% url 'bandas:edita_album' album.title %}">
+                        <button>Editar informação do Album</button>
+                    </a>
+
+                    <a href="{% url 'bandas:apaga_album' album.title %}">
+                        <button>Apagar Album</button>
+                    </a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

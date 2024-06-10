@@ -1,0 +1,64 @@
+{
+    "albums": [
+        {
+            "title": "Led Zeppelin IV",
+            "year": 1971,
+            "band": "Led Zeppelin",
+            "tracks": [
+                {"title": "Stairway to Heaven", "duration": "8:02"},
+                {"title": "Black Dog", "duration": "4:54"},
+                {"title": "Rock and Roll", "duration": "3:40"},
+                {"title": "Going to California", "duration": "3:31"},
+                {"title": "When the Levee Breaks", "duration": "7:07"}
+            ]
+        },
+        {
+            "title": "Nevermind",
+            "year": 1991,
+            "band": "Nirvana",
+            "tracks": [
+                {"title": "Smells Like Teen Spirit", "duration": "5:01"},
+                {"title": "Come As You Are", "duration": "3:38"},
+                {"title": "Lithium", "duration": "4:17"},
+                {"title": "In Bloom", "duration": "4:14"},
+                {"title": "Polly", "duration": "2:57"}
+            ]
+        },
+        {
+            "title": "The Dark Side of the Moon",
+            "year": 1973,
+            "band": "Pink Floyd",
+            "tracks": [
+                {"title": "Time", "duration": "6:53"},
+                {"title": "Money", "duration": "6:22"},
+                {"title": "Us and Them", "duration": "7:51"},
+                {"title": "Brain Damage", "duration": "3:50"},
+                {"title": "Eclipse", "duration": "2:03"}
+            ]
+        },
+        {
+            "title": "Appetite for Destruction",
+            "year": 1987,
+            "band": "Guns N' Roses",
+            "tracks": [
+                {"title": "Sweet Child o' Mine", "duration": "5:55"},
+                {"title": "Welcome to the Jungle", "duration": "4:31"},
+                {"title": "Paradise City", "duration": "6:46"},
+                {"title": "Mr. Brownstone", "duration": "3:49"},
+                {"title": "Rocket Queen", "duration": "6:13"}
+            ]
+        },
+        {
+            "title": "Abbey Road",
+            "year": 1969,
+            "band": "The Beatles",
+            "tracks": [
+                {"title": "Come Together", "duration": "4:20"},
+                {"title": "Here Comes the Sun", "duration": "3:05"},
+                {"title": "Something", "duration": "3:03"},
+                {"title": "Octopus's Garden", "duration": "2:51"},
+                {"title": "I Want You (She's So Heavy)", "duration": "7:47"}
+            ]
+        }
+    ]
+}

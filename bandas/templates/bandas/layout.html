@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bandas/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5d1319edfb.js" crossorigin="anonymous"></script>
+    <style>
+        {% block style %}
+        {% endblock %}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="menu-container">
+            <div class="menu">
+                <a href="{% url 'bandas:index' %}"><i class="fas fa-home"></i> Home</a>
+            </div>
+            <div class="user-info">
+                {% if request.user.is_authenticated %}
+                    <i class="fa fa-user"></i> Username: {{ request.user.username }}
+                    <a href="{% url 'bandas:logout' %}"><button>Logout</button></a>
+                {% else %}
+                    <div class="auth-buttons">
+                        <a href="{% url 'bandas:login' %}"><button>Login</button></a>
+                        <a href="{% url 'bandas:registo' %}"><button>Register</button></a>
+                    </div>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <a href="{% url 'bandas:css' %}">Estilos usados</a>
+    </footer>
+</body>
+</html>

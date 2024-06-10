@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seletores e Combinadores CSS</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        .used {
+            color: green;
+        }
+        .not-used {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h3>Seletores CSS</h3>
+    <p>CSS é usado para estilizar elementos HTML. Seletores determinam quais elementos são estilizados.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Seletor</th>
+                <th>Usado</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Elemento (tag)</td>
+                <td><span class="material-icons used">check_circle</span></td>
+                <td>Seleciona elementos baseados no nome da tag, como <code>&lt;p&gt;</code> para parágrafos.</td>
+            </tr>
+            <tr>
+                <td>Classe</td>
+                <td><span class="material-icons used">check_circle</span></td>
+                <td>Seleciona elementos com uma classe específica, indicado por um ponto (.), como <code>.classname</code>.</td>
+            </tr>
+            <tr>
+                <td>ID</td>
+                <td><span class="material-icons used">check_circle</span></td>
+                <td>Seleciona um único elemento com um ID específico, indicado por uma hashtag (#), como <code>#idname</code>.</td>
+            </tr>
+            <tr>
+                <td>Atributo</td>
+                <td><span class="material-icons used">cancel</span></td>
+                <td>Seleciona elementos com um atributo específico, como <code>[type="text"]</code> para campos de texto.</td>
+            </tr>
+            <tr>
+                <td>Pseudo-classe</td>
+                <td><span class="material-icons used">check_circle</span></td>
+                <td>Seleciona elementos em um estado específico, como <code>:hover</code> quando o mouse está sobre o elemento.</td>
+            </tr>
+            <tr>
+                <td>Pseudo-elemento</td>
+                <td><span class="material-icons used">check_circle</span></td>
+                <td>Seleciona partes específicas de um elemento, como <code>::first-letter</code> para a primeira letra de um texto.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Combinadores de seletores</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Combinador</th>
+                <th>Usado</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Descendente (espaço)</td>
+                <td><span class="material-icons used">check_circle</span></td>
+                <td>Seleciona todos os elementos que são descendentes de um elemento específico, como <code>div p</code> para todos os <code>&lt;p&gt;</code> dentro de <code>&lt;div&gt;</code>.</td>
+            </tr>
+            <tr>
+                <td>Filho direto (&gt;)</td>
+                <td><span class="material-icons used">check_circle</span></td>
+                <td>Seleciona elementos que são filhos diretos de outro elemento, como <code>ul &gt; li</code> para itens de lista diretamente dentro de uma lista.</td>
+            </tr>
+            <tr>
+                <td>Irmãos adjacentes (+)</td>
+                <td><span class="material-icons not-used">cancel</span></td>
+                <td>Seleciona um elemento que é imediatamente seguido por outro, como <code>h1 + p</code> para um parágrafo imediatamente após um cabeçalho.</td>
+            </tr>
+            <tr>
+                <td>Irmãos gerais (~)</td>
+                <td><span class="material-icons used">check_circle</span></td>
+                <td>Seleciona todos os elementos que são irmãos de um elemento, mesmo não sendo adjacentes, como <code>h1 ~ p</code> para todos os parágrafos que são irmãos de um <code>&lt;h1&gt;</code>.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

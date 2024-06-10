@@ -1,0 +1,20 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block title %}Registo{% endblock %}
+
+{% block content %}
+    <div class="register-container">
+        <h3 class="register-title">Registo</h3>
+        <form class="register-form" action="{% url 'portfolio:registo' %}" method="post">
+          {% csrf_token %}
+          <input type="text" name="username" placeholder="O seu username.." required>
+          <input type="text" name="nome" placeholder="O seu nome.." required>
+          <input type="text" name="apelido" placeholder="O seu apelido.." required>
+          <input type="email" name="email" placeholder="O seu email.." required>
+          <input type="password" name="password" placeholder="Defina a sua password.." required>
+          <input type="submit" class="register-button" value="Criar">
+        </form>
+        <a class="cancel-link" href="{% url 'portfolio:login' %}">Cancelar</a>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,23 @@
+{% extends 'curso/layout.html' %}
+
+{% block content %}
+    <div class="login-container">
+        <h3>Login</h3>
+
+        {% if mensagem %}
+            <p class="mensagem">{{ mensagem }}</p>
+        {% endif %}
+        <form action="{% url 'curso:login' %}" method="post" class="login-form">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username.." class="input-field">
+            <input type="password" name="password" placeholder="Password.." class="input-field">
+            <input type="submit" value="Login" class="submit-button">
+        </form>
+
+        <div class="recuperar-password">
+            <a href="{% url 'reset_password' %}">
+                <button class="recuperar-button">Recuperar Palavra-chave</button>
+            </a>
+        </div>
+    </div>
+{% endblock %}

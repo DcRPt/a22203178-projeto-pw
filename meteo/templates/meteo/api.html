@@ -1,0 +1,121 @@
+{% extends "meteo/layout.html" %}
+
+{% block title %}API meteo{% endblock %}
+
+{% block header %}
+    <h2>Como funciona a API de meteorologia </h2>
+
+    <div class="links-meteo">
+        <a href="/meteo/">Ver previsão de hoje em Lisboa</a>
+        <a href="/meteo/previsao">Ver previsões dos próximos 5 dias</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="api-contentor">
+        <p>O IPMA oferece uma API que disponibiliza dados de previsão meteorológica para diversas cidades portuguesas.</p>
+        <p>Na página <a href="https://api.ipma.pt/">https://api.ipma.pt/</a>, encontra-se a descrição dos endpoints e parâmetros.</p>
+
+        <h3>Listagem das cidades</h3>
+        <p>Endpoint: <code>api/list_cities/</code></p>
+        <p>Método: GET</p>
+        <p>Descrição: Retorna uma lista de todas as cidades disponíveis.</p>
+        <p><a href="{% url 'meteo:list_cities' %}">Ver JSON</a></p>
+        <p>Resultado:</p>
+        <pre>
+            {
+                "owner": "IPMA",
+                "country": "PT",
+                "data": [
+                {
+                  "idRegiao": 1,
+                  "idAreaAviso": "AVR",
+                  "idConcelho": 5,
+                  "globalIdLocal": 1010500,
+                  "latitude": "40.6413",
+                  "idDistrito": 1,
+                  "local": "Aveiro",
+                  "longitude": "-8.6535"
+                },
+                ...
+              ]
+            }
+        </pre>
+
+        <h3>Previsão de Meteorológica</h3>
+        <p>Endpoint: <code>/api/previsao/&lt;global_id_local&gt;/</code></p>
+        <p>Método: GET</p>
+        <p>Descrição: Retorna a previsão meteorológica dos próximos 5 dias para a cidade especifica através do id</p>
+        <p>Parâmetros:</p>
+        <ul>
+            <li><code>global_id_local</code> (int): ID da cidade desejada</li>
+        </ul>
+        <p><a href="{% url 'meteo:previsao' global_id_local=1110600%}">Ver JSON para Lisboa</a></p>
+        <p>Resultado</p>
+        <pre>
+        {
+            "owner": "IPMA",
+            "country": "PT",
+            "data": [
+            {
+              "precipitaProb": "0.0",
+              "tMin": "15.7",
+              "tMax": "30.1",
+              "predWindDir": "N",
+              "idWeatherType": 2,
+              "classWindSpeed": 2,
+              "longitude": "-9.1286",
+              "forecastDate": "2024-05-30",
+              "latitude": "38.7660"
+            },
+            {
+              "precipitaProb": "0.0",
+              "tMin": "16.7",
+              "tMax": "34.2",
+              "predWindDir": "NW",
+              "idWeatherType": 1,
+              "classWindSpeed": 2,
+              "longitude": "-9.1286",
+              "forecastDate": "2024-05-31",
+              "latitude": "38.7660"
+            },
+            {
+              "precipitaProb": "0.0",
+              "tMin": "19.8",
+              "tMax": "30.6",
+              "predWindDir": "E",
+              "idWeatherType": 1,
+              "classWindSpeed": 1,
+              "longitude": "-9.1286",
+              "forecastDate": "2024-06-01",
+              "latitude": "38.7660"
+            },
+            {
+              "precipitaProb": "0.0",
+              "tMin": "17.5",
+              "tMax": "27.7",
+              "predWindDir": "SW",
+              "idWeatherType": 1,
+              "classWindSpeed": 1,
+              "longitude": "-9.1286",
+              "forecastDate": "2024-06-02",
+              "latitude": "38.7660"
+            },
+            {
+              "precipitaProb": "0.0",
+              "tMin": "18.5",
+              "tMax": "30.4",
+              "predWindDir": "NW",
+              "idWeatherType": 1,
+              "classWindSpeed": 1,
+              "longitude": "-9.1286",
+              "forecastDate": "2024-06-03",
+              "latitude": "38.7660"
+            }
+          ],
+          "globalIdLocal": 1110600,
+          "dataUpdate": "2024-05-30T10:31:04"
+        }
+        </pre>
+    </div>
+{% endblock %}

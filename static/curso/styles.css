@@ -1,0 +1,357 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    width:100%;
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 0;
+}
+
+h2::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f19d";
+    margin-right: 10px;
+    font-weight: 900;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    border-bottom: 2px solid #1F2937;
+    width: 100%;
+}
+
+.menu, .user-info, .auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.menu a, .user-info a, .auth-buttons a {
+    color: #ffffff;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+}
+
+.menu a:hover, .user-info a:hover, .auth-buttons a:hover {
+    color: #F1C40F;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.curso-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.curso-link {
+    font-size: 18px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.curso-actions {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+.area-actions,
+.disciplina-actions,
+.docente-actions,
+.projeto-actions,
+.linguagem-actions {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 10px;
+}
+
+
+
+.area-actions {
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+button {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover, .button-novo:hover, .button-edita:hover, .button-apaga:hover {
+    background-color: #0056b3;
+}
+
+.auth-buttons button {
+    background-color: #28a745;
+}
+
+.auth-buttons button:hover {
+    background-color: #218838;
+}
+
+.curso-title, .disciplina-title, .projeto-title {
+    color: #444;
+    font-size: 2em;
+    text-align: center;
+}
+
+.curso-description {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: justify;
+    padding: 0 10px;
+}
+
+
+.disciplina-info, .projeto-info {
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.disciplinas-title, .disciplina-section-title, .projeto-section-title {
+    color: #666;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+.disciplinas-list, .disciplina-list, .projeto-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+}
+
+.disciplinas-item, .disciplina-item, .projeto-item {
+    list-style: none;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.disciplinas-link, .disciplina-link {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.disciplinas-link:hover, .disciplina-link:hover {
+    color: #0056b3;
+}
+
+.button-novo, .button-edita, .button-apaga{
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 5px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.button-novo:hover, .button-edita:hover, .button-apaga:hover {
+    background-color: #367C2B;
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.button-edita, .button-apaga {
+    text-decoration: none;
+    margin: 6px;
+}
+
+.projeto-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.youtube-link,
+.github-link {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+.youtube-link {
+    color: #FF0000;
+    font-size: 30px;
+}
+
+.github-link {
+    color: #171515;
+    font-size: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.login-container h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.mensagem {
+    color: red;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-field {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.recuperar-password {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.recuperar-button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6c757d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.recuperar-button:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive Design */
+@media (max-width: 300px) {
+    .menu-container, .menu {
+        flex-direction: column;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .curso-card {
+        justify-items: start;
+    }
+
+    .content-container {
+        padding: 10px;
+    }
+
+    h2, .menu a, .user-info a, .auth-buttons a, .curso-link , .curso-title, .disciplinas-title, .disciplina-title, .docentes-title, .disciplina-projeto-title, .projeto-title, .curso-description, .button-novo, .button-edita, .button-apaga {
+        font-size: x-large;
+    }
+
+    button, .button-novo, .button-edita, .button-apaga {
+        padding: 8px 10px;
+    }
+
+    .login-container {
+        margin: 20px;
+    }
+
+    .register-container {
+        margin: 20px;
+    }
+
+}

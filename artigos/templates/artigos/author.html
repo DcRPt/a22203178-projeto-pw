@@ -1,0 +1,37 @@
+{% extends 'artigos/layout.html' %}
+
+{% block title %}
+{{author.name}}
+{% endblock %}
+
+{% block content %}
+
+<div class="author-container">
+    <h1 class="author-name">{{ author.name }}</h1>
+    <p class="author-email">Email: {{ author.email }}</p>
+
+    {% if request.user.is_authenticated %}
+    <div class="author-actions">
+        <a class="button-editar" href="{% url 'artigos:edita_autor' author.id %}">
+            Editar informação do Autor
+        </a>
+
+        <a class="button-apagar" href="{% url 'artigos:apaga_autor' author.id %}">
+            Apagar autor e seus livros
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+<div class="articles-container">
+    <h1>Artigos:</h1>
+    <ul class="articles-list">
+    {% for article in articles %}
+        <li class="article-item">
+            <a href="{% url 'artigos:article_view' author.name article.title %}" class="article-link">{{ article.title }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

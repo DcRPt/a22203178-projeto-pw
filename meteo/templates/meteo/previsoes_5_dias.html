@@ -1,0 +1,52 @@
+{% extends "meteo/layout.html" %}
+
+{% block title %}Meteorologia em {{ cidade }}{% endblock %}
+
+{% block header %}
+    <div class="header-container">
+        <h1>Previsão do tempo para os próximos 5 dias em {{ cidade }}</h1>
+        <form method="get" action="">
+            <label for="cidade">Cidade:</label>
+            <select name="global_id_local" id="cidade" onchange="this.form.submit()">
+                <option value="">Escolha uma cidade</option>
+                {% for city in cities %}
+                    <option value="{{ city.globalIdLocal }}"
+                        {% if city.globalIdLocal == global_id_local %}selected{% endif %}>
+                        {{ city.local }}
+                    </option>
+                {% endfor %}
+            </select>
+            <button type="submit">Ver Previsão</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="previsao-container">
+    {% for day in forecasts %}
+        <div class="header-content-previsoes">
+            <div class="previsao-text">
+               <h1>{{cidade }}</h1>
+                <p>({{ day.latitude }}, {{ day.longitude }})</p>
+            </div>
+
+            <p>{{ day.data }}</p>
+        </div>
+        <div class="weather-info">
+            <div class="weather-block">
+                <span id="temp-maxima"><i class="fas fa-thermometer-full"></i> {{ day.temp_maxima }}°C</span>
+                <span id="temp-minima"><i class="fas fa-thermometer-empty"></i> {{ day.temp_minima }}°C</span>
+            </div>
+            <div class="weather-block">
+                <div class="icon" style="background-image: url('{{ day.icon_url }}');"></div>
+                <div>
+                    <p>Precipitação: {{ day.precipita_prob }}%</p>
+                    <p>Direção do Vento: {{ day.pred_wind_dir }}</p>
+                    <p>Velocidade do Vento: {{ day.class_wind_speed }} km/h</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

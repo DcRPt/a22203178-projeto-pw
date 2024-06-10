@@ -1,0 +1,33 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'meteo/styles.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/5d1319edfb.js" crossorigin="anonymous"></script>
+        <style>
+            {% block style %}
+            {% endblock %}
+        </style>
+    </head>
+    <body>
+        <header>
+            {% block header %}
+            {% endblock %}
+        </header>
+
+        <main class="content-container">
+                {% block content %}{% endblock %}
+        </main>
+
+        <footer>
+            <h3>
+                <a class="footer-text" href="{% url 'meteo:api' %}">informação sobre a API</a>
+            </h3>
+        </footer>
+    </body>
+</html>

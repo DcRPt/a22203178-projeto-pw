@@ -1,0 +1,13 @@
+{% extends 'festivais/layout.html' %}
+
+{% block title %}Festivais{% endblock %}
+
+{% block content %}
+<ul>
+    {% for festival in festivais %}
+        <li>
+            <a href="{% url 'festivais:festival' festival.nome %}" class = "links">{{ festival.nome }}</a>, Bandas: {% for banda in festival.bandas.all %}    {{ banda.nome }}{% if not forloop.last %}, {% endif %}<{% endfor %}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

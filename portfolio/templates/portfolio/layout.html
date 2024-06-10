@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5d1319edfb.js" crossorigin="anonymous"></script>
+    <style>
+        {% block style %}
+        {% endblock %}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="meteorologia-relogio">
+            <div class="weather-block">
+                <div class="icon" style="background-image: url('{{ icon_url }}');"></div>
+                <div class="temperaturas">
+                    <span id="temp-maxima"><i class="fas fa-thermometer-full"></i>{{ temp_maxima }}°C</span>
+                    <span id="temp-minima"><i class="fas fa-thermometer-empty"></i>{{ temp_minima }}°C</span>
+                </div>
+            </div>
+            <div class="clock-block">
+                            <div class="clock-icon"><i class="fa fa-clock-o fa-lg"></i></div>
+                <div id="clock"></div>
+            </div>
+        </div>
+
+
+        <nav>
+            <ul>
+                <li><a href="{% url 'portfolio:index' %}">Início</a></li>
+                <li><a href="{% url 'portfolio:about' %}">Site</a></li>
+                <li><a href="{% url 'portfolio:aboutMe' %}">Sobre Mim</a></li>
+                <li><a href="{% url 'artigos:index' %}">Artigos</a></li>
+                <li><a href="{% url 'bandas:index' %}">Bandas</a></li>
+                <li><a href="{% url 'curso:index' %}">Cursos</a></li>
+                <li><a href="{% url 'meteo:index' %}">Meteorologia</a></li>
+            </ul>
+        </nav>
+
+        <button id="dark-mode-toggle">Dark Mode</button>
+
+        <div class="user-info">
+            {% if request.user.is_authenticated %}
+                <i class="fa fa-user"></i> Username: {{ request.user.username }}
+                <a href="{% url 'portfolio:logout' %}"><button>Logout</button></a>
+            {% else %}
+                <div class="auth-buttons">
+                    <a href="{% url 'portfolio:login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a href="{% url 'portfolio:registo' %}"><i class="fas fa-user-plus"></i> Register</a>
+                </div>
+            {% endif %}
+        </div>
+
+    </header>
+
+    <main class="content-container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="{% static 'portfolio/clock.js' %}"></script>
+    <script src="{% static 'portfolio/darkMode.js' %}"></script>
+</body>
+</html>

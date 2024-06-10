@@ -1,0 +1,59 @@
+{% extends 'curso/layout.html' %}
+
+{% block content %}
+
+<h1 class="disciplina-title">Sobre {{ disciplina.nome }}</h1>
+<p class="disciplina-info"><strong>Ano: </strong>{{ disciplina.ano }}</p>
+<p class="disciplina-info"><strong>Semestre: </strong>{{ disciplina.semestre }}</p>
+<p class="disciplina-info"><strong>ECTS: </strong>{{ disciplina.ects }}</p>
+
+<h2 class="docentes-title">Docentes</h2>
+<ul class="disciplina-list">
+{% if request.user.is_authenticated %}
+    <a href="{% url 'curso:novo_docente' curso.nome disciplina.nome %}">
+        <button class="button-novo"><i class="fas fa-plus"> Novo docente</i></button>
+    </a>
+{% endif %}
+{% for docente in disciplina.docente_set.all %}
+    <li class="disciplina-item">{{ docente.nome }}</li>
+    {% if request.user.is_authenticated %}
+        <div class="docente-actions">
+            <a href="{% url 'curso:edita_docente' curso.nome disciplina.nome docente.nome %}">
+                <button class="button-edita"><i class="fas fa-edit"> Editar</i></button>
+            </a>
+            <a href="{% url 'curso:apaga_docente' curso.nome disciplina.nome docente.nome %}">
+                <button class="button-apaga"><i class="fas fa-trash"> Remover</i></button>
+            </a>
+        </div>
+    {% endif %}
+{% endfor %}
+</ul>
+
+<h2 class="disciplina-projeto-title">Projeto</h2>
+<ul class="projeto-list">
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'curso:novo_projeto' curso.nome disciplina.nome %}">
+            <button class="button-novo"><i class="fas fa-plus"> Novo projeto</i></button>
+        </a>
+    {% endif %}
+
+    <li class= "projeto-item">
+        {% if projeto %}
+            <a href="{% url 'curso:projeto_view' curso.nome disciplina.nome projeto.nome %}" class="disciplina-link">{{ projeto.nome }}</a>
+
+            {% if request.user.is_authenticated %}
+            <div class="projeto-actions">
+                <a href="{% url 'curso:edita_projeto' curso.nome disciplina.nome projeto.nome %}">
+                    <button class="button-apaga"><i class="fas fa-edit"> Editar</i></button>
+                </a>
+                <a href="{% url 'curso:apaga_projeto' curso.nome disciplina.nome projeto.nome %}">
+                    <button class="button-apaga"><i class="fas fa-trash"> Remover</i></button>
+                </a>
+            </div>
+        {% endif %}
+        {% else %}
+            <p class="disciplina-info">Nenhum projeto disponível para esta disciplina.</p>
+        {% endif %}
+    </li>
+</ul>
+{% endblock %}

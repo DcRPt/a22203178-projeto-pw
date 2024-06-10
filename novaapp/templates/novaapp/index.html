@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação Web</title>
+    <style>
+        body {
+            background: #802626;
+            color: #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programação Web</h1>
+        <nav>
+            <a href="{% url 'novaapp:index' %}">Home</a> |
+            <a href="{% url 'novaapp:sobre' %}">Sobre</a> |
+            <a href="{% url 'novaapp:interesses' %}">Interesses</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Home</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce condimentum malesuada nibh, nec lobortis tortor gravida quis. Suspendisse id magna.</p>
+        <ul>
+            <li><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Fusce condimentum malesuada nibh.</li>
+            <li><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Fusce condimentum malesuada nibh.</li>
+        </ul>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae eros nec dui porttitor dignissim. Nulla viverra mi quis elit faucibus, ut tincidunt felis vestibulum. Donec dignissim odio consequat sem luctus scelerisque.</p>
+    </main>
+
+    <footer>
+        <p>&copy; {{ data|date:"j F Y" }} Programação Web, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

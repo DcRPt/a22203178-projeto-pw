@@ -1,0 +1,45 @@
+{% extends 'bandas/layout.html' %}
+
+{% block title %}
+{{album.band.name}} - {{album.title}}
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'bandas:band_view' album.band.name %}">Voltar para {{album.band.name}}</a>
+
+<div class="album-container">
+    <h1></i>{{ album.title }}</h1>
+    <img src="{{ album.get_album_cover }}" alt="Foto da capa do álbum {{ album.title }}">
+</div>
+
+<h2>Músicas</h2>
+
+{% if request.user.is_authenticated %}
+    <a href="{% url 'bandas:nova_musica' album.title %}">
+        <button>Criar Musica</button>
+    </a>
+{% endif %}
+
+<ul>
+{% for song in songs %}
+    <li class ="album-item">
+        <a href="{% url 'bandas:song_view' song.title %}"><i class="fa fa-play-circle-o"></i>{{ song.title }}</a>
+        {% if song.lyrics %}
+            <i class="fa fa-compact-disc"></i>
+        {% endif %}
+        <p>{{ song.biografia }}</p>
+
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'bandas:edita_musica' song.title %}">
+                <button>Editar musica</button>
+            </a>
+
+            <a href="{% url 'bandas:apaga_musica' song.title %}">
+                <button>Apagar musica</button>
+            </a>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

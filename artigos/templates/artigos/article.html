@@ -1,0 +1,73 @@
+{% extends 'artigos/layout.html' %}
+
+{% block title %}
+{{article.author.name}} - {{article.title}}
+{% endblock %}
+
+{% block content %}
+<h1 class="author-name">Autor</h1>
+<p>Este artigo foi escrito por <a class="author-link" href="{% url 'artigos:author_view' article.author.name %}">{{article.author.name}}</a></p>
+
+<h1 class="article-title">{{ article.title }}</h1>
+<p class="article-content">{{ article.content }}</p>
+
+{% if request.user.is_authenticated %}
+<a class="button-editar" href="{% url 'artigos:edita_artigo' article.id %}">
+    Editar Artigo
+</a>
+
+<a class="button-apagar" href="{% url 'artigos:apaga_artigo' article.id %}">
+    Apagar Artigo
+</a>
+{% endif %}
+
+
+<h1>Classificações</h1>
+{% if request.user.is_authenticated %}
+ <a class="button-novo" href="{% url 'artigos:novo_rating' article.id %}">
+    Inserir nova Classificação
+</a>
+{% endif %}
+
+<ul>
+{% for rating in ratings %}
+    <li>
+        <span class="rating-value">Classificação: {{ rating.rating_value }}</span>
+        {% if request.user.is_authenticated %}
+            <a class="button-editar" href="{% url 'artigos:edita_rating' article.id rating.id %}">
+                Editar rating
+            </a>
+            <a class="button-apagar" href="{% url 'artigos:apaga_rating' article.id rating.id %}">
+                Apagar rating
+            </a>
+        {% endif %}
+
+    </li>
+{% endfor %}
+</ul>
+
+<h1>Comentários</h1>
+{% if request.user.is_authenticated %}
+    <a class="button-novo" href="{% url 'artigos:novo_comentario' article.id %}">
+        Inserir novo comentário
+    </a>
+{% endif %}
+
+<ul>
+{% for comment in comments %}
+    <li>
+        <span class="comment-content">{{ comment.comenter_name }} disse: {{ comment.content }}</span>
+        {% if request.user.is_authenticated %}
+            <a class="button-editar" href="{% url 'artigos:edita_comentario' article.id comment.id %}">
+                Editar comentário
+            </a>
+            <a class="button-apagar" href="{% url 'artigos:apaga_comentario' article.id comment.id %}">
+                Apagar comentário
+            </a>
+        {% endif %}
+
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

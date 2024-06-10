@@ -1,0 +1,47 @@
+{% extends 'curso/layout.html' %}
+
+{% block content %}
+<div class="projeto-page">
+    <h2 class="projeto-title">{{ projeto.nome }}</h2>
+    <h3 class="projeto-section-title">Descrição</h3>
+    <p class="projeto-info">{{ projeto.descricao }}</p>
+    <h3 class="projeto-section-title">Conceitos Aplicados</h3>
+    <p class="projeto-info">{{ projeto.conceitos_aplicados }}</p>
+    <h3 class="projeto-section-title">Técnologias usadas</h3>
+    <p class="projeto-info">{{ projeto.tecnologias_usadas }}</p>
+    {% if projeto.imagem %}
+        <img src="{{ projeto.imagem.url }}" alt="{{ projeto.nome }}" class="projeto-image">
+    {% endif %}
+
+    <h2 class="projeto-section-title">Linguagems de Programação</h2>
+    <ul class="projeto-list">
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'curso:nova_linguagem' curso.nome disciplina.nome projeto.nome %}">
+        <button class="button-novo"><i class="fas fa-plus"> Nova linguagem</i></button>
+        </a>
+    {% endif %}
+
+    {% for linguagem in projeto.linguagemprogramacao_set.all %}
+        <li class="projeto-item">{{ linguagem.nome }}</li>
+        {% if request.user.is_authenticated %}
+            <div class="linguagem-actions">
+                <a href="{% url 'curso:edita_linguagem' curso.nome disciplina.nome projeto.nome linguagem.nome %}">
+                <button class="button-edita"><i class="fas fa-edit"> Editar</i></button>
+                </a>
+                <a href="{% url 'curso:apaga_linguagem' curso.nome disciplina.nome projeto.nome linguagem.nome %}">
+                <button class="button-apaga"><i class="fas fa-trash"> Remover</i></button>
+                </a>
+            </div>
+        {% endif %}
+    {% endfor %}
+    </ul>
+    <div class="projeto-links">
+        {% if projeto.video_link %}
+            <a href="{{ projeto.video_link }}" class="youtube-link"><i class="fab fa-youtube"></i></a>
+        {% endif %}
+        {% if projeto.github_link %}
+            <a href="{{ projeto.github_link }}" class="github-link"><i class="fab fa-github"></i></a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

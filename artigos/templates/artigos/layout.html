@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'artigos/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        {% block style %}
+        {% endblock %}
+    </style>
+</head>
+<body>
+    <nav class="menu-container">
+        <div class="menu">
+            <a href="{% url 'artigos:index' %}">Artigos</a>
+        </div>
+        {% if request.user.is_authenticated %}
+        <div class="user-info">
+            Username: {{ request.user.username }}
+            <a href="{% url 'artigos:logout' %}"><button>Logout</button></a>
+        </div>
+        {% else %}
+        <div class="auth-buttons">
+            <a href="{% url 'artigos:login' %}"><button>Login</button></a>
+            <a href="{% url 'artigos:registo' %}"><button>Register</button></a>
+        </div>
+        {% endif %}
+    </nav>
+    <div class="content-container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

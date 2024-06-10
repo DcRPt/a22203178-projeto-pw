@@ -1,0 +1,32 @@
+{% extends 'bandas/layout.html' %}
+
+{% block title %}
+{{song.album.title}} - {{song.title}}
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'bandas:band_view' song.album.band.name %}">Voltar para {{song.album.band.name}}</a>
+
+<div class="song-container">
+    <h2>{{ song.album.title }}</h2>
+    <img src="{{ song.album.get_album_cover }}" alt="Foto da capa do álbum {{ song.album.title }}">
+    <h1>{{ song.title }}</h1>
+
+    {% if song.spotify_link %}
+    <a href="{{ song.spotify_link }}" target="_blank">Ouça agora a música</a>
+    {% else %}
+        <p>Link do Spotify não disponível.</p>
+    {% endif %}
+</div>
+
+
+{% if song.lyrics %}
+    <h3>Letra</h3>
+    <div class ="letra-container">
+        <p>{{ song.lyrics|linebreaks }}</p>
+    </div>
+{% else %}
+    <p>Letra não disponível.</p>
+{% endif %}
+
+{% endblock %}

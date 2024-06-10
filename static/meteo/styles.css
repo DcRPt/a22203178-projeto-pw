@@ -1,0 +1,181 @@
+body, html {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    width: 100%;
+    margin-bottom:20px;
+}
+
+header, .header-content, .header-content-previsoes {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to bottom right, #6fa8dc, #42aaff);
+    padding: 20px;
+    text-align: center;
+    background-color: #42aaff;
+    color: white;
+}
+
+header, .header-content-previsoes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+
+.header-container h1, .header-container h2, .header-content-previsoes h1 {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.header-container form {
+    display: flex;
+    align-items: center;
+}
+
+.header-container label {
+    margin-right: 10px;
+}
+
+.header-container select {
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.header-container button {
+    background-color: white;
+    color: #42aaff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+.weather-container {
+    width: 100%;
+    max-width: 380px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+
+.weather-info {
+    padding: 20px;
+}
+
+.content-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.weather-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e9feff;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.temp-maxima, .temp-minima {
+    margin: 5px;
+}
+
+#temp-maxima {
+    color: red;
+}
+
+#temp-maxima .fas.fa-thermometer-full {
+    color: red;
+}
+
+#temp-minima {
+    color: blue;
+}
+
+#temp-minima .fas.fa-thermometer-empty {
+    color: blue;
+}
+
+.previsao-container{
+    background: white;
+}
+
+.previsao-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.links-meteo {
+    display: flex;
+    gap: 15px;
+}
+
+.links-meteo a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.api-contentor {
+    background: white;
+    padding: 20px;
+}
+
+.content-container h3 {
+    color: #2a699d;
+}
+
+.content-container a {
+    color: #42aaff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.content-container pre {
+    background: #e9feff;
+    padding: 15px;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+footer {
+    display:flex;
+    justify-content: center;
+    background-color: #2a699d;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-text {
+    color: white;
+    text-decoration: none;
+}
